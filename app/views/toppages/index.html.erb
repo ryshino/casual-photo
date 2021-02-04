@@ -1,0 +1,31 @@
+<section class="section">
+  <article class="media">
+    <div class="media-content">
+      <div class="content has-text-centered">
+        <p>
+          <strong class="is-size-1" style="font-family: cursive;">Casual Photo</strong>
+        </p>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-5">
+          <% if logged_in? %>
+            <%= link_to "さあはじめよう！", new_photo_path, class: "button is-primary is-fullwidth" %>
+          <% else %>
+            <br>
+            <%= link_to "ログイン", login_path, class: "button is-primary is-fullwidth" %>
+            <br>
+            <%= link_to "新規登録", signup_path, class: "button is-primary is-fullwidth" %>
+          <% end %>
+          </div>
+      </div>
+    </div>
+  </article>
+  <br>
+  <div class="columns is-centered">
+    <div class="column">
+      <figure>
+        <div class="main-image"></div>
+      </figure>
+    </div>
+  </div>
+</section>

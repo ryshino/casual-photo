@@ -1,0 +1,51 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        ユーザー編集
+      </h1>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_with(model: @user, local: true) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+          
+          <div class="field">
+            <%= f.label :name, class: "label" %>
+            <%= f.text_field :name, class: "input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :email, class: "label" %>
+            <%= f.email_field :email, class: "input"%>
+          </div>          
+          
+          <div class="field">
+            <%= f.label :profile, "プロフィール", class: "label" %>
+            <%= f.text_area :profile, class: "textarea" %>
+          </div>
+        
+          <div>
+            <%= f.label :profile_image, "プロフィール画像", class: "label" %>
+            <%= f.attachment_field :profile_image %>
+          </div>
+    
+          <%= f.submit '更新', class: "button is-success mt-2" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+
+  
+
+  
+  

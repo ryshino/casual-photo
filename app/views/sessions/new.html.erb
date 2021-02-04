@@ -1,0 +1,45 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        ログイン
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+        
+          <div class="field">
+            <%= f.label :email, "メールアドレス", class: "label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
+          </div>        
+
+          <div class="field">
+            <%= f.label :password, 'パスワード', class: "label" %>
+            <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password", class: "input" %>
+          </div>
+          
+          <div>
+            <%= f.label :password_confirmation, '確認用', class: "label" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "password confirmation", class: "input" %>
+          </div>
+          
+          <%= f.submit 'Log in', class: "button is-success mt-2" %>
+        <% end %>
+        
+        <div>
+          <%= link_to '新規登録はこちら', signup_path, class: "button is-info mt-4" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  
+
+
