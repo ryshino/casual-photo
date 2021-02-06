@@ -68,3 +68,7 @@ gem "refile-mini_magick"
 
 gem "bulma-rails"
 gem 'rails-i18n'
+
+group :production, :staging do
+  gem 'unicorn'
+end
