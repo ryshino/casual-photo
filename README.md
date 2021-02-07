@@ -1,24 +1,25 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーションの概要  
+ 
+http://casual-photo.work/
+ 
+ 日々のちょっとした感動を共有する、写真投稿アプリです。  
+ 普段のSNSで投稿するのは恥ずかしいけど、同じ価値観を持っている人が集まるコミニュティでなら共有したいものがある。  
+ そういう思いを持った人に向けて作りました。  
+ 
+# 工夫した点  
+・AWS（VPC・EC2・Route53を使用）へのデプロイ  
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# アプリケーションの機能  
+  
+・ログイン機能  
+・ログイン状態の保持  
+・写真投稿機能  
+・いいね機能  
+ 
+# 環境  
+ 
+ ■フレームワーク  
+  Ruby on Rails  
+ ■データベース  
+  PostgreSQL  
