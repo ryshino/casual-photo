@@ -10,22 +10,19 @@
         <div class="column is-5">
           <% if logged_in? %>
             <%= link_to "さあはじめよう！", new_photo_path, class: "button is-primary is-fullwidth" %>
+              <br>
+              <div class="columns is-centered">
+                <div class="column">
+                  <figure>
+                    <div class="main-image"></div>
+                  </figure>
+                </div>
+              </div>
           <% else %>
-            <br>
-            <%= link_to "ログイン", login_path, class: "button is-primary is-fullwidth" %>
-            <br>
-            <%= link_to "新規登録", signup_path, class: "button is-primary is-fullwidth" %>
+            <%= render 'recruit_login' %>
           <% end %>
           </div>
       </div>
     </div>
   </article>
-  <br>
-  <div class="columns is-centered">
-    <div class="column">
-      <figure>
-        <div class="main-image"></div>
-      </figure>
-    </div>
-  </div>
 </section>
