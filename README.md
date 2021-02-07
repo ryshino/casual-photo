@@ -22,4 +22,4 @@ http://casual-photo.work/
  ■フレームワーク  
   Ruby on Rails  
  ■データベース  
-  PostgreSQL  
+  MySQL  
