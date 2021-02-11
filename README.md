@@ -9,7 +9,8 @@ http://casual-photo.work/
  
 # 工夫した点  
 ・AWS（VPC・EC2・Route53を使用）へのデプロイ  
-
+・https化  
+  
 # アプリケーションの機能  
   
 ・ログイン機能  
