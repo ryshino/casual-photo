@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -49,7 +50,7 @@ class PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:title, :body, :image)
   end
-  
+
   def correct_user
     @photo = current_user.photos.find_by(id: params[:id])
     unless @photo

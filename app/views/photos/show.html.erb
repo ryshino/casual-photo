@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="column is-4 ml-4">
         <article class="panel is-link">
           <p class="panel-heading">
@@ -70,6 +70,9 @@
             <%= @photo.user.name %>さんのページへ
           <% end %>
         </article>
+
+        <%= render "comments/comment" %>
+        
       </div>
     </div>
   </div>
