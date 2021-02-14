@@ -10,6 +10,7 @@ https://casual-photo.work/
 # 工夫した点  
 ・AWS（VPC・EC2・Route53を使用）へのデプロイ  
 ・https化  
+・コメント機能
   
 # アプリケーションの機能  
   
@@ -17,6 +18,7 @@ https://casual-photo.work/
 ・ログイン状態の保持  
 ・写真投稿機能  
 ・いいね機能  
+・コメント機能
  
 # 環境  
  
