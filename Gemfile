@@ -69,6 +69,9 @@ gem "refile-mini_magick"
 gem "bulma-rails"
 gem 'rails-i18n'
 
+gem "refile-s3"
+gem 'dotenv-rails'
+
 group :production, :staging do
   gem 'unicorn'
 end
