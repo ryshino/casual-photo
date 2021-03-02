@@ -1,6 +1,6 @@
 <h2 class="title title-comment is-4"><i class="icon ion-ios-chatbubbles"></i>コメント (<%= @photo.comments.count %>)</h2>
 
-<% @photo.comments.each do |comment| %>
+<% @photo.comments.includes(:user).each do |comment| %>
   <article class="media">
       <div class="media-content">
         <div class="content">

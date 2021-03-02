@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
-    @photos = Photo.all
+    @photos = Photo.includes(:user)
   end
 
   def show

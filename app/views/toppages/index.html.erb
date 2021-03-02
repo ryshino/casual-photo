@@ -6,23 +6,27 @@
           <strong class="is-size-1" style="font-family: cursive;">Casual Photo</strong>
         </p>
       </div>
-      <div class="columns is-centered">
-        <div class="column is-5">
-          <% if logged_in? %>
+      <% if logged_in? %>
+        <div class="columns is-centered">
+          <div class="column is-5">
             <%= link_to "さあはじめよう！", new_photo_path, class: "button is-primary is-fullwidth" %>
-              <br>
-              <div class="columns is-centered">
-                <div class="column">
-                  <figure>
-                    <div class="main-image"></div>
-                  </figure>
-                </div>
-              </div>
-          <% else %>
-            <%= render 'recruit_login' %>
-          <% end %>
           </div>
-      </div>
+        </div>
+        <br>
+          <div class="columns is-centered">
+            <div class="column">
+              <figure>
+                <div class="main-image"></div>
+              </figure>
+            </div>
+          </div>
+      <% else %>
+        <div class="columns is-centered">
+          <div class="column is-5">
+            <%= render 'recruit_login' %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </article>
 </section>
