@@ -8,7 +8,7 @@ https://casual-photo.work/
  そういう思いを持った人に向けて作りました。  
  
 # 工夫した点  
-・AWS（VPC・EC2・Route53を使用）へのデプロイ  
+・AWS（VPC・EC2・Route53・S3を使用）へのデプロイ  
 ・https化  
 ・コメント機能
   
