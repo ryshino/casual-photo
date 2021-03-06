@@ -72,6 +72,7 @@ gem 'rails-i18n'
 gem "refile-s3"
 gem 'dotenv-rails'
 
+gem 'jquery-rails'
 
 group :production, :staging do
   gem 'unicorn'

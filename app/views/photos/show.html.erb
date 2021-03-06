@@ -33,16 +33,9 @@
                   <td><%= simple_format @photo.body %></td>
                 </tr>
               </table>
-              <% if current_user.already_favorited?(@photo) %>
-                <%= link_to photo_favorites_path(@photo), method: :delete do %>
-                  <i class="fas fa-heart"></i>
-                <% end %>
-              <% else %>
-                <%= link_to photo_favorites_path(@photo), method: :post do %>
-                  <i class="far fa-heart"></i>
-                <% end %>
-              <% end %>
-              <%= @photo.favorites.count %>
+              <div id="show_favorite_<%= @photo.id %>">
+                <%= render 'favorites/favorite', photo: @photo %>
+              </div>
               <div class="content">
               <% if @photo.user.id == current_user.id %>
                 <%= link_to '編集画面へ', edit_photo_path(@photo), class: "button is-success" %>

@@ -32,18 +32,9 @@
                   <div class="title"><%= link_to photo.user.name, user_path(photo.user) %></div>
                 </div>
               </div>
-              <% if logged_in? %>
-                <% if current_user.already_favorited?(photo) %>
-                  <%= link_to photo_favorites_path(photo), method: :delete do %>
-                    <i class="fas fa-heart"></i>
-                  <% end %>
-                <% else %>
-                  <%= link_to photo_favorites_path(photo), method: :post do %>
-                    <i class="far fa-heart"></i>
-                  <% end %>
-                <% end %>
-                <%= photo.favorites.count %>
-              <% end %>
+              <div id="index_favorite_<%= photo.id %>">
+                <%= render 'favorites/favorite', photo: photo %>
+              </div>
               <div class="content">
                 <time><%= photo.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
               </div>

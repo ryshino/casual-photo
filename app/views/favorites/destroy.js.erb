@@ -1,0 +1,3 @@
+//投稿一覧いいね差し替え
+$("#index_favorite_<%= @photo.id %>").html("<%= j(render partial: 'favorites/favorite', locals: { photo: @photo}) %>");
+$("#show_favorite_<%= @photo.id %>").html("<%= j(render partial: 'favorites/favorite', locals: { photo: @photo}) %>");
