@@ -1,0 +1,19 @@
+<article class="media">
+  <div class="media-content">
+    <%= form_with(model: [photo, comment], url: photo_comments_path(@photo), method: :post ) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+      <div class="field">
+        <p class="control">
+          <%= f.text_area :comment, class: "textarea", placeholder: "コメントを追加..." %>
+        </p>
+      </div>
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <%= f.submit 'コメント', class: "button is-success" %>
+          </div>
+        </div>
+      </nav>
+    <% end %>
+  </div>
+</article>

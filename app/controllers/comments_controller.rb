@@ -1,25 +1,23 @@
 class CommentsController < ApplicationController
   def create
-    @comment = current_user.comments.new(comment_params)
-
-    if @comment.save
-      flash[:success] = "コメントを追加しました！"
-    else
-      flash[:danger] = "コメントの投稿ができませんでした"
-    end
-    redirect_back(fallback_location: root_path)
+    @photo = Photo.find(params[:photo_id])
+    @comment = @photo.comments.build(comment_params)
+    @comment.user_id = current_user.id
+    @comment.save
+    render :index
   end
 
   def destroy
-    @photo = Photo.find(params[:photo_id])
-    @comment = current_user.comments.find_by(photo_id: @photo.id)
+    @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_back(fallback_location: root_path)
+    render :index
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:comment).merge(photo_id: params[:photo_id])
+    params.require(:comment).permit(:comment, :photo_id, :user_id)
   end
 end
+
+

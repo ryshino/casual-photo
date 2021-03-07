@@ -1,0 +1,17 @@
+<h2 class="title title-comment is-4"><i class="icon ion-ios-chatbubbles"></i>コメント (<%= comments.count %>)</h2>
+
+<% comments.includes(:user).each do |comment| %>
+  <article class="media">
+      <div class="media-content">
+        <div class="content">
+            <p>
+              <strong><%= link_to comment.user.name, user_path(comment.user) %></strong>
+              <%= simple_format comment.comment %>
+              <% if comment.user.id == current_user.id %>
+                <%= link_to "削除", photo_comment_path(comment.photo_id, comment.id), method: :delete, remote: true %>
+              <% end %>
+            </p>
+        </div>
+      </div>
+  </article>
+<% end %>

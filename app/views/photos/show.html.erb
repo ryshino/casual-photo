@@ -62,9 +62,14 @@
             <%= @photo.user.name %>さんのページへ
           <% end %>
         </article>
-
-        <%= render "comments/comment" %>
-        
+        <div>
+          <div id="comments_area">
+            <%= render partial: 'comments/index', locals: { comments: @comments } %>
+          </div>
+          <div>
+            <%= render partial: 'comments/form', locals: { comment: @comment, photo: @photo } %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
