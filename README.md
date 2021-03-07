@@ -9,8 +9,8 @@ https://casual-photo.work/
  
 # 工夫した点  
 ・AWS（VPC・EC2・Route53・S3を使用）へのデプロイ  
-・https化  
-・コメント機能
+・SSL化  
+・一部非同期通信を使用してユーザーストレスの軽減(いいね機能・コメント機能)  
   
 # アプリケーションの機能  
   
@@ -23,6 +23,6 @@ https://casual-photo.work/
 # 環境  
  
  ■フレームワーク  
-  Ruby on Rails  
+  Ruby on Rails 5.2.4  
  ■データベース  
   MySQL  
