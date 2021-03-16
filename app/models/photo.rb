@@ -6,4 +6,6 @@ class Photo < ApplicationRecord
   attachment :image
   
   validates :title, :body, :image, presence: true
+  validates :title, length: { maximum: 20 }
+  validates :body, length: { maximum: 150 }
 end
