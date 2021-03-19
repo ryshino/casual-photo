@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     @comment = Comment.new
-    @comments = @photo.comments.order(created_at: :desc)
+    @comments = @photo.comments.order(created_at: :asc)
   end
 
   def new
