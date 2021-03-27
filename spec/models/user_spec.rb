@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
   end
 
   it "名前が50文字以上なら無効な状態であること" do
-    user = User.new(name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    user = User.new(name: "a" * 51)
     user.valid?
     expect(user.errors[:name]).to include("は50文字以内で入力してください")
   end
@@ -27,6 +27,12 @@ RSpec.describe User, type: :model do
     user = User.new(email: nil)
     user.valid?
     expect(user.errors[:email]).to include("を入力してください")
+  end
+
+  it "メールアドレスが255文字以上なら無効な状態であること" do
+    user = User.new(email: "@" * 256)
+    user.valid?
+    expect(user.errors[:email]).to include("は255文字以内で入力してください")
   end
 
   it "重複したメールアドレスなら無効な状態であること" do
@@ -53,6 +59,12 @@ RSpec.describe User, type: :model do
     )
     user.valid?
     expect(user.errors[:password]).to include("は6文字以上で入力してください")
+  end
+
+  it "プロフィールが280文字以上なら無効な状態であること" do
+    user = User.new(profile: "a" * 281)
+    user.valid?
+    expect(user.errors[:profile]).to include("は280文字以内で入力してください")
   end
 
 end
