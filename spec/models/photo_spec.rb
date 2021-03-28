@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Photo, type: :model do
-  before do
-    @user = FactoryBot.create(:user)
-  end
 
   it "写真が保存されること" do
-    photo = FactoryBot.build(:photo, user_id: @user.id)
+    photo = FactoryBot.build(:photo)
     photo.valid?
     expect(photo).to be_valid
   end
