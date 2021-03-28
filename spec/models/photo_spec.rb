@@ -37,4 +37,9 @@ RSpec.describe Photo, type: :model do
     photo.valid?
     expect(photo.errors[:body]).to include("は150文字以内で入力してください")
   end
+
+  it "たくさんのコメントがついていること" do
+    photo = FactoryBot.create(:photo, :with_comments)
+    expect(photo.comments.length).to eq 5
+  end
  end

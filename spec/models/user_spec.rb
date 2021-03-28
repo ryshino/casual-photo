@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   it "名前がなければ無効な状態であること" do
-    user = FactoryBot.build(:user, name: nil)
+    user = User.new(name: nil)
     user.valid?
     expect(user.errors[:name]).to include("を入力してください")
   end
