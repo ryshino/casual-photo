@@ -8,5 +8,9 @@ FactoryBot.define do
     trait :with_comments do
       after(:create) { |photo| create_list(:comment, 5, photo: photo) }
     end
+
+    trait :invalid do
+      title nil
+    end
   end
 end
