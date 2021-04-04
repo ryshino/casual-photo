@@ -24,11 +24,6 @@
             <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password", class: "input" %>
           </div>
           
-          <div>
-            <%= f.label :password_confirmation, '確認用', class: "label" %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "password confirmation", class: "input" %>
-          </div>
-          
           <%= f.submit 'Log in', class: "button is-success mt-2" %>
         <% end %>
         
