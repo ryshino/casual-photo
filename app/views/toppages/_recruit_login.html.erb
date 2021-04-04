@@ -19,17 +19,12 @@
         
           <div class="field">
             <%= f.label :email, "メールアドレス", class: "label" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", value: 'recruit@example.com', :placeholder => "email", class: "input" %>
+            <%= f.email_field :email, value: 'recruit@example.com', class: "input" %>
           </div>        
 
           <div class="field">
             <%= f.label :password, 'パスワード', class: "label" %>
-            <%= f.password_field :password, autocomplete: "new-password", value: 'password', :placeholder => "password", class: "input" %>
-          </div>
-          
-          <div>
-            <%= f.label :password_confirmation, '確認用', class: "label" %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", value: 'password', :placeholder => "password confirmation", class: "input" %>
+            <%= f.password_field :password, value: 'password', class: "input" %>
           </div>
           
           <%= f.submit '専用ログイン', class: "button is-success mt-2" %>
