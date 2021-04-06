@@ -1,12 +1,16 @@
 <section class="hero">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        【採用担当者様　専用ログインフォーム】
-      </h1>
-      <h4>
-        下記の「専用ログイン」ボタンを押していただければ、<br>すぐに専用アカウントでログインが可能です。
-      </h4>
+      <div class="columns is-centered">
+        <h1 class="title">
+          【採用担当者様 専用ログインフォーム】
+        </h1>
+      </div>
+      <div class="columns is-centered">
+        <h4>
+          下記の「専用ログイン」ボタンを押していただければ、<br>すぐに専用アカウントでログインが可能です。
+        </h4>
+      </div>
     </div>
   </div>
 </section>
@@ -26,16 +30,18 @@
             <%= f.label :password, 'パスワード', class: "label" %>
             <%= f.password_field :password, value: 'password', class: "input" %>
           </div>
-          
-          <%= f.submit '専用ログイン', class: "button is-success mt-2" %>
+
+          <%= f.submit '専用ログイン', class: "button is-success mt-2 is-fullwidth" %>
         <% end %>
       </div>
     </div>
-  </div>
-  <div>
-    <p>＜採用担当者様　専用アカウント＞</p>
-    <p>メールアドレス：recruit@example.com</p>
-    <p>パスワード：password</p>
-    <p>※フォームに予め入力済</p>
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <p>＜採用担当者様 専用アカウント＞</p>
+        <p>メールアドレス：recruit@example.com</p>
+        <p>パスワード：password</p>
+        <p>※フォームに予め入力済</p>
+      </div>
+    </div>
   </div>
 </section>
