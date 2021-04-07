@@ -33,10 +33,10 @@
         
           <div>
             <%= f.label :profile_image, "プロフィール画像", class: "label" %>
-            <%= f.attachment_field :profile_image %>
+            <%= f.attachment_field :profile_image, class: "input" %>
           </div>
     
-          <%= f.submit '更新', class: "button is-success mt-2" %>
+          <%= f.submit '更新', class: "button is-success mt-6 is-fullwidth" %>
         <% end %>
       </div>
     </div>
