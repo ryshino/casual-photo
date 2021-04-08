@@ -1,40 +1,17 @@
-<section class="hero">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        ログイン
-      </h1>
-    </div>
-  </div>
-</section>
-
 <section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5">
-        <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-        
-          <div class="field">
-            <%= f.label :email, "メールアドレス", class: "label" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
-          </div>        
-
-          <div class="field">
-            <%= f.label :password, 'パスワード', class: "label" %>
-            <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password", class: "input" %>
-          </div>
-          
-          <%= f.submit 'Log in', class: "button is-success mt-2 mb-2 is-fullwidth" %>
-        <% end %>
-        
-        <div>
-          <%= link_to '新規登録はこちら', signup_path, class: "button is-info mt-6" %>
+  <article class="media">
+    <div class="media-content">
+      <div class="content has-text-centered">
+        <p>
+          <strong class="is-size-1" style="font-family: cursive;">Casual Photo</strong>
+        </p>
+          <h4 id="wf-sawarabimincho">あなたが本当に見せたかった１枚を</h4>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-5">
+          <%= render 'toppages/recruit_login' %>
         </div>
       </div>
     </div>
-  </div>
+  </article>
 </section>
-  
-  
-
-
