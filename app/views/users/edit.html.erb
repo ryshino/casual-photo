@@ -35,11 +35,6 @@
             <%= f.label :profile_image, "プロフィール画像", class: "label" %>
             <%= f.attachment_field :profile_image, class: "input" %>
           </div>
-
-          <div class="field">
-            <%= f.label :password, 'パスワード（６文字以上必要です）', class: "label" %>
-            <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password", class: "input" %>
-          </div>
     
           <%= f.submit '更新', class: "button is-success mt-6 is-fullwidth" %>
         <% end %>
