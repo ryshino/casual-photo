@@ -7,7 +7,7 @@ RSpec.feature "Photos", type: :feature do
     visit login_path
     fill_in "メールアドレス", with: user.email
     fill_in "パスワード", with: user.password
-    click_button "Log in"
+    click_button "専用ログイン"
 
     expect {
       click_link "新規投稿"
