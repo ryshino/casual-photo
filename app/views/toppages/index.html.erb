@@ -1,33 +1,111 @@
-<section class="section">
-  <article class="media">
-    <div class="media-content">
-      <div class="content has-text-centered">
-        <p>
-          <strong class="is-size-1" style="font-family: cursive;">Casual Photo</strong>
-        </p>
-          <h4 id="wf-sawarabimincho">あなたが本当に見せたかった１枚を</h4>
+<section class="hero is-white is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns  is-vcentered reverse-columns">
+        <div class="column
+        is-10-mobile is-offset-1-mobile
+        is-10-tablet is-offset-1-tablet
+        is-5-desktop is-offset-1-desktop
+        is-5-widescreen is-offset-1-widescreen
+        is-5-fullhd is-offset-1-fullhd" data-aos="fade-down">
+          <h1 class="title titled is-1 mb-6">
+            あなたが本当に<br>
+            見せたかった１枚を
+          </h1>
+          <h2 class=" subtitled subtitle has-text-grey is-4 has-text-weight-normal is-family-sans-serif">
+            日々のちょっとした感動を共有する、写真投稿アプリです。<br>
+            普段のSNSで投稿するのは恥ずかしいけど、同じ価値観を持っている人が集まるコミニュティでなら共有したいものがある。<br>
+            そういう思いを持った人に向けて作りました。
+          </h2>
+          <div class="buttons">
+            <% if logged_in? %>
+              <button class="button is-black"><%= link_to "さあはじめよう！", new_photo_path %></button>
+            <% else %>
+              <button class="button is-black"><%= link_to '新規登録', signup_path %></button>
+              <button class="button"><%= link_to 'ログイン', login_path %></button>
+            <% end %>
+          </div>
+        </div>
+        <div data-aos="fade-right" class="column
+        is-10-mobile is-offset-1-mobile
+        is-10-tablet is-offset-1-tablet
+        is-5-desktop is-offset-1-desktop
+        is-5-widescreen is-offset-1-widescreen
+        is-5-fullhd is-offset-1-fullhd">
+          <figure class="image is-square">
+            <%= image_tag "top1.png" %>
+          </figure>
+        </div>
       </div>
-      <% if logged_in? %>
-        <div class="columns is-centered">
-          <div class="column is-5" >
-            <%= link_to "さあはじめよう！", new_photo_path, class: "button is-primary is-fullwidth" %>
-          </div>
-        </div>
-        <br>
-          <div class="columns is-centered">
-            <div class="column">
-              <figure>
-                <div class="main-image"></div>
-              </figure>
-            </div>
-          </div>
-      <% else %>
-        <div class="columns is-centered">
-          <div class="column is-5">
-            <%= render 'recruit_login' %>
-          </div>
-        </div>
-      <% end %>
     </div>
-  </article>
+  </div>
 </section>
+
+<section class="hero is-white is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns  is-vcentered">
+        <div data-aos="fade-left" class="column
+        is-10-mobile is-offset-1-mobile
+        is-10-tablet is-offset-1-tablet
+        is-4-desktop is-offset-1-desktop
+        is-4-widescreen is-offset-1-widescreen
+        is-4-fullhd is-offset-1-fullhd">
+          <figure class="image is-square">
+            <%= image_tag "top2.png" %>
+          </figure>
+        </div>
+        <div data-aos="fade-down" class="column
+        is-10-mobile is-offset-1-mobile
+        is-10-tablet is-offset-1-tablet
+        is-5-desktop is-offset-1-desktop
+        is-5-widescreen is-offset-1-widescreen
+        is-5-fullhd is-offset-1-fullhd">
+          <h1 class="titled title is-1 mb-6">
+            コメントを送ってみよう！
+          </h1>
+          <h2 class="subtitled subtitle">
+            このアプリは、同じ価値観を持った人達が気軽に写真を投稿して交流できるアプリです！<br>
+            まだ写真を投稿するのが恥ずかしい人もコメントを送ってみましょう！
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-white is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns  is-vcentered reverse-columns">
+        <div data-aos="fade-right" class="column
+        is-10-mobile is-offset-1-mobile
+        is-10-tablet is-offset-1-tablet
+        is-5-desktop is-offset-1-desktop
+        is-5-widescreen is-offset-1-widescreen
+        is-5-fullhd is-offset-1-fullhd">
+          <h1 class="title titled is-1 mb-6">
+            気軽に投稿してみよう！
+          </h1>
+          <h2 class="subtitle subtitled">
+            「自分の写真なんて誰も興味ない」<br>
+            大丈夫です！ここにいるユーザーはアプリのコンセプトに共感して利用してくれています。<br>
+            あなたも気軽に投稿してみましょう！
+          </h2>
+        </div>
+        <div data-aos="fade-down" class="column
+        is-10-mobile is-offset-1-mobile
+        is-10-tablet is-offset-1-tablet
+        is-5-desktop is-offset-1-desktop
+        is-5-widescreen is-offset-1-widescreen
+        is-5-fullhd is-offset-1-fullhd" data-aos="fade-up">
+          <figure class="image is-square">
+            <%= image_tag "top3.jpg" %>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
