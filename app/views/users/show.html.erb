@@ -63,12 +63,9 @@
               <div class="card-content">
                 <div class="media">
                   <div class="media-content">
-                    <%= link_to photo_path(photo), class: "panel-block" do %>
-                      <span class="panel-icon">
-                        <i class="fas fa-book" area-hidden="true"></i>
-                      </span>
-                      この写真を見る
-                    <% end %>
+                    <div id="index_favorite_<%= photo.id %>">
+                      <%= render 'favorites/favorite', photo: photo %>
+                    </div>
                     <% if @user.id == current_user.id %>
                       <%= link_to edit_photo_path(photo), class: "panel-block" do %>
                         <span class="panel-icon">
@@ -88,7 +85,7 @@
               <div class="content">
                 <time><%= photo.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
               </div>
-        　　</div>
+            </div>
           </div>
         </div>
       <% end %>
