@@ -4,6 +4,7 @@ class Photo < ApplicationRecord
   has_many :comments, dependent: :destroy
   
   attachment :image
+  enum status: { open: 0, closed: 1 }
   
   validates :title, :body, :image, presence: true
   validates :title, length: { maximum: 20 }

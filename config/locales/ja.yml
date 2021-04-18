@@ -12,3 +12,6 @@ ja:
         title: タイトル
         body: 内容
         image: 写真
+        statuses:
+          open: 全体公開
+          closed: ログインユーザーのみ

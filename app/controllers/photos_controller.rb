@@ -3,7 +3,8 @@ class PhotosController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
-    @photos = Photo.includes(:user)
+    @photos = Photo.includes(:user).open
+    @photos_login = Photo.includes(:user)
   end
 
   def show
@@ -49,7 +50,7 @@ class PhotosController < ApplicationController
   private
   
   def photo_params
-    params.require(:photo).permit(:title, :body, :image)
+    params.require(:photo).permit(:title, :body, :image, :status)
   end
 
   def correct_user

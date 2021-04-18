@@ -28,6 +28,11 @@
             <%= f.label :image, '写真', class: "label" %>
             <%= f.attachment_field :image, class: "input" %>
           </div>
+
+          <div class="field">
+            <%= f.label :status, '公開範囲', class: "label" %>
+            <%= f.select :status, options_for_select(Photo.statuses.map { |k, _v| [t("activerecord.attributes.photo.statuses.#{k}"), k] }), {}, { class:'select is-fullwidth' } %>
+          </div>
           
           <%= f.submit '投稿', class: "button is-success mt-6 is-fullwidth" %>
         <% end %>
