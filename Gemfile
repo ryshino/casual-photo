@@ -77,6 +77,7 @@ gem "refile-s3"
 gem 'dotenv-rails'
 
 gem 'jquery-rails'
+gem 'dropzonejs-rails', '~> 0.7.4'
 
 group :production, :staging do
   gem 'unicorn'
