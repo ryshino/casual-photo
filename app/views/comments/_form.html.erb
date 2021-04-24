@@ -1,4 +1,4 @@
-<article class="media">
+<article class="media mt-4">
   <div class="media-content">
     <%= form_with(model: [photo, comment], url: photo_comments_path(@photo), method: :post ) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
