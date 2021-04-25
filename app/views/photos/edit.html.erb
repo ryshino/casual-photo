@@ -26,7 +26,23 @@
           
           <div class="field">
             <%= f.label :image, class: "label" %>
-            <%= f.attachment_field :image, class: "input" %>
+            <div class="file has-name is-fullwidth">
+              <label class="file-label">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    <%= f.attachment_field :image, id: "file", style: "display:none;", onchange: "$('#fake_input_file').val($(this).val())" %>
+                    <input type="button" onClick="$('#file').click();" class="noborder">
+                    写真を選んでください
+                  </span>
+                </span>
+                <span class="file-name">
+                  <input id="fake_input_file" readonly type="text" value=""  onClick="$('#file').click();" class="noborder">
+                </span>
+              </label>
+            </div>
           </div>
 
            <div class="field">
