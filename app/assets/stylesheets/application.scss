@@ -24,7 +24,11 @@
     border-radius: 50%;  
 }
 
-
+.show_image {
+  width: 1200px;
+  height: 500px;
+  object-fit: contain;
+}
 #subtitle { 
     font-family: "Sawarabi Mincho"; 
 }

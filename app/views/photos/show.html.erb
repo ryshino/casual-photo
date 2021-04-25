@@ -14,8 +14,8 @@
       <div class="columns is-7">
         <div class="card">
           <div class="card-image">
-            <figure class="image">
-              <%= attachment_image_tag @photo, :image %>
+            <figure>
+              <%= attachment_image_tag @photo, :image, class: "show_image" %>
             </figure>
           </div>
           <div class="card-content">
