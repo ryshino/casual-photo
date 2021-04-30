@@ -20,10 +20,10 @@ class PhotosController < ApplicationController
   def create
     @photo = current_user.photos.build(photo_params)
     if @photo.save
-      flash[:success] = '投稿に成功しました'
+      flash[:notice] = '投稿に成功しました'
       redirect_to photo_path(@photo)
     else
-      flash.now[:danger] = '投稿に失敗しました'
+      flash.now[:alert] = '投稿に失敗しました'
       render :new
     end
   end
@@ -33,17 +33,17 @@ class PhotosController < ApplicationController
   
   def update
     if @photo.update(photo_params)
-      flash[:success] = '更新に成功しました'
+      flash[:notice] = '更新に成功しました'
       redirect_to photo_path(@photo)
     else
-      flash.now[:danger] = '投稿に失敗しました'
+      flash.now[:alert] = '投稿に失敗しました'
       render :edit
     end
   end
   
   def destroy
     @photo.destroy
-    flash[:success] = '投稿を削除しました'
+    flash[:notice] = '投稿を削除しました'
     redirect_back(fallback_location: root_path)
   end
   
@@ -56,7 +56,7 @@ class PhotosController < ApplicationController
   def correct_user
     @photo = current_user.photos.find_by(id: params[:id])
     unless @photo
-      flash[:danger] = '不正なアクセスです'
+      flash[:alert] = '不正なアクセスです'
       redirect_to root_url
     end
   end

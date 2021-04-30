@@ -19,10 +19,10 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "ユーザを登録しました"
+      flash[:notice] = "ユーザを登録しました"
       redirect_to @user
     else
-      flash.now[:danger] = "ユーザの登録に失敗しました"
+      flash.now[:alert] = "ユーザの登録に失敗しました"
       render :new
     end
   end
@@ -32,10 +32,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = "ユーザー情報を更新しました"
+      flash[:notice] = "ユーザー情報を更新しました"
       redirect_to @user
     else
-      flash.now[:danger] = "ユーザー情婦の更新に失敗しました"
+      flash.now[:alert] = "ユーザー情婦の更新に失敗しました"
       render :edit
     end
   end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
     if @user != current_user
-      flash[:danger] = "不正なアクセスです"
+      flash[:alert] = "不正なアクセスです"
       redirect_to root_url
     end
   end
