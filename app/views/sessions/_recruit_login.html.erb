@@ -20,7 +20,7 @@
     <div class="columns is-centered">
       <div class="column is-5">
         <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-        
+
           <div class="field">
             <%= f.label :email, "メールアドレス", class: "label" %>
             <%= f.email_field :email, value: 'recruit@example.com', class: "input" %>

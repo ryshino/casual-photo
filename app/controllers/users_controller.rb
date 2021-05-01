@@ -19,10 +19,10 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "ユーザを登録しました"
+      flash[:notice] = "ユーザーを登録しました"
       redirect_to @user
     else
-      flash.now[:alert] = "ユーザの登録に失敗しました"
+      flash.now[:alert] = "ユーザーの登録に失敗しました"
       render :new
     end
   end
