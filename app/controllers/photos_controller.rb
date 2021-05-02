@@ -36,7 +36,7 @@ class PhotosController < ApplicationController
       flash[:notice] = '更新に成功しました'
       redirect_to photo_path(@photo)
     else
-      flash.now[:alert] = '投稿に失敗しました'
+      flash.now[:alert] = '更新に失敗しました'
       render :edit
     end
   end
