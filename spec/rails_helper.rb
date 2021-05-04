@@ -60,4 +60,11 @@ RSpec.configure do |config|
   def login(user)
     session[:user_id] = user.id
   end
+
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end

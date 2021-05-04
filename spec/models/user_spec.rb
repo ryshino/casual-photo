@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
 
   it "名前がなければ無効な状態であること" do
     user = User.new(name: nil)
-    user.valid?
+    user.valid? 
     expect(user.errors[:name]).to include("を入力してください")
   end
 
