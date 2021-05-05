@@ -4,30 +4,35 @@ RSpec.describe "Users", type: :system do
   let(:user) { FactoryBot.create(:user) }
   
   describe "ログインページ" do
-    it "ログインをする" do
-      visit login_path
-      fill_in "メールアドレス", with: user.email
-      fill_in "パスワード", with: user.password
-      click_button "専用ログイン"
-      expect(page).to have_content "ログインに成功しました"
+    context "ページレイアウト" do
+      it "【採用担当者様 専用ログインフォーム】の文字列が存在すること" do
+        visit login_path
+        expect(page).to have_content "【採用担当者様 専用ログインフォーム】"
+      end
     end
-
-    it "ログインに失敗する" do
-      visit login_path
-      fill_in "メールアドレス", with: ""
-      fill_in "パスワード", with: ""
-      click_button "専用ログイン"
-      expect(page).to have_content "メールアドレスもしくはパスワードの入力に誤りがあります"      
-    end
+    context "ログイン処理" do
+      before do
+        visit login_path
+        fill_in "メールアドレス", with: user.email
+        fill_in "パスワード", with: user.password
+        click_button "専用ログイン"
+      end
+      it "ログインをする" do
+        expect(page).to have_content "ログインに成功しました"
+      end
   
-    it "ログアウトする" do
-      visit login_path
-      fill_in "メールアドレス", with: user.email
-      fill_in "パスワード", with: user.password
-      click_button "専用ログイン"
-      
-      click_link "ログアウト"
-      expect(page).to have_content "ログアウトしました"
+      it "ログインに失敗する" do
+        visit login_path
+        fill_in "メールアドレス", with: ""
+        fill_in "パスワード", with: ""
+        click_button "専用ログイン"
+        expect(page).to have_content "メールアドレスもしくはパスワードの入力に誤りがあります"      
+      end
+    
+      it "ログアウトする" do        
+        click_link "ログアウト"
+        expect(page).to have_content "ログアウトしました"
+      end
     end
   end
 
@@ -37,30 +42,38 @@ RSpec.describe "Users", type: :system do
       visit signup_path
     end
 
-    it "新規登録する" do
-      fill_in "ユーザー名", with: "new_user"
-      fill_in "メールアドレス", with: "new_user@example.com"
-      fill_in "パスワード", with: "1" * 6
-      fill_in "確認用", with: "1" * 6
-      click_button "Sign up!"
-      expect(page). to have_content "ユーザーを登録しました"
+    context "ページレイアウト" do
+      it "「New User」の文字列が存在すること" do
+        expect(page).to have_content "New User"
+      end
     end
 
-    it "新規登録に失敗する" do
-      fill_in "ユーザー名", with: ""
-      fill_in "メールアドレス", with: "new_user@example.com"
-      fill_in "パスワード", with: "1" * 6
-      fill_in "確認用", with: "2" * 6
-      click_button "Sign up!"
-      aggregate_failures do
-        expect(page). to have_content "ユーザーの登録に失敗しました"
-        expect(page). to have_content "ユーザー名を入力してください"
-        expect(page). to have_content "パスワード(確認)とパスワードの入力が一致しません"
+    context "サインアップ処理" do
+      it "新規登録する" do
+        fill_in "ユーザー名", with: "new_user"
+        fill_in "メールアドレス", with: "new_user@example.com"
+        fill_in "パスワード", with: "1" * 6
+        fill_in "確認用", with: "1" * 6
+        click_button "Sign up!"
+        expect(page). to have_content "ユーザーを登録しました"
+      end
+  
+      it "新規登録に失敗する" do
+        fill_in "ユーザー名", with: ""
+        fill_in "メールアドレス", with: "new_user@example.com"
+        fill_in "パスワード", with: "1" * 6
+        fill_in "確認用", with: "2" * 6
+        click_button "Sign up!"
+        aggregate_failures do
+          expect(page). to have_content "ユーザーの登録に失敗しました"
+          expect(page). to have_content "ユーザー名を入力してください"
+          expect(page). to have_content "パスワード(確認)とパスワードの入力が一致しません"
+        end
       end
     end
   end
 
-  describe "ユーザー編集ページ" do
+  describe "ユーザー編集ページ",slow: true do
     it "ユーザー情報を編集する" do
       visit login_path
       fill_in "メールアドレス", with: user.email
