@@ -98,4 +98,37 @@ RSpec.describe "Users", type: :system do
       end 
     end   
   end
+
+  describe "ユーザー一覧ページ" do
+    context "ページレイアウト" do
+      it "「Users」の文字列が存在すること" do
+        visit users_path
+        expect(page).to have_content "Users"
+      end
+    end
+
+    context "ユーザー登録している場合" do
+      it "詳細画面を移動できる" do
+        visit login_path
+        fill_in "メールアドレス", with: user.email
+        fill_in "パスワード", with: user.password
+        click_button "専用ログイン"
+
+        click_link "ユーザー一覧"
+        click_link "#{user.name}"
+        expect(page).to have_content "User"
+        expect(page).to have_content "#{user.name}"
+      end
+    end
+      
+    context "ユーザー登録していない場合" do
+      it "ログイン画面へリダイレクトされる" do  
+        FactoryBot.create(:user)
+        visit users_path
+        click_link "#{user.name}"
+        expect(page).to have_content "ログインが必要です"
+        expect(page).to have_content "【採用担当者様 専用ログインフォーム】"
+      end  
+    end
+  end
 end

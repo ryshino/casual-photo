@@ -30,6 +30,12 @@ RSpec.describe User, type: :model do
     expect(user.errors[:email]).to include("は255文字以内で入力してください")
   end
 
+  it "メールアドレスは小文字で保存されること" do
+    email = "ExamPle@example.com"
+    user = FactoryBot.create(:user, email: email)
+    expect(user.email).to eq email.downcase
+  end
+
   it "重複したメールアドレスなら無効な状態であること" do
     User.create(
       name: "test",
