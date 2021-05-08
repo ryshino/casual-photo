@@ -108,7 +108,7 @@ RSpec.describe "Users", type: :system do
     end
 
     context "ユーザー登録している場合" do
-      it "詳細画面を移動できる" do
+      it "詳細画面へ移動できる" do
         visit login_path
         fill_in "メールアドレス", with: user.email
         fill_in "パスワード", with: user.password
