@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Photos", type: :system do
   let(:user) { FactoryBot.create(:user) }
 
-  describe "写真の投稿", js: true, slow: true do
+  describe "写真の投稿", js: true do
     it "新しい写真を投稿する" do
       visit login_path
       fill_in "メールアドレス", with: user.email
@@ -44,15 +44,25 @@ RSpec.describe "Photos", type: :system do
     end
 
     context "ユーザー登録している場合" do
-      it "詳細画面へ移動できる" do
+      before do
         visit login_path
         fill_in "メールアドレス", with: user.email
         fill_in "パスワード", with: user.password
         click_button "専用ログイン"
+      end
 
+      it "詳細画面へ移動できる" do
         visit photos_path
         find(".card-image").click
         expect(page).to have_content "#{ photo.title}"
+      end
+
+      it "公開範囲が「ログインユーザーのみ」の写真が表示されること" do
+        login_user = FactoryBot.create(:user, name: "ログインユーザーの写真")
+        FactoryBot.create(:photo, user_id: login_user.id, status: 1)
+
+        visit photos_path
+        expect(page).to have_content "ログインユーザーの写真"
       end
     end
 
@@ -62,7 +72,14 @@ RSpec.describe "Photos", type: :system do
         find(".card-image").click
         expect(page).to have_content "ログインが必要です"
         expect(page).to have_content "【採用担当者様 専用ログインフォーム】"
-      end  
+      end
+      
+      it "公開範囲が「ログインユーザーのみ」の写真は表示されないこと" do
+        login_user = FactoryBot.create(:user, name: "ログインユーザーの写真")
+        FactoryBot.create(:photo, user_id: login_user.id, status: 1)
+        visit photos_path
+        expect(page).to_not have_content "ログインユーザーの写真"
+      end
     end
   end
 end
