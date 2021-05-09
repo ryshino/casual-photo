@@ -58,7 +58,7 @@ RSpec.describe "Users", type: :system do
     end
   end
 
-  describe "ユーザー編集ページ", slow: true do
+  describe "ユーザー編集ページ" do
     before do
       visit login_path
       fill_in "メールアドレス", with: user.email
@@ -76,12 +76,15 @@ RSpec.describe "Users", type: :system do
     context "ユーザー編集処理" do      
       it "ユーザー情報を編集する" do
         click_link "編集"
-        fill_in "ユーザー名", with: "テストユーザー"
+        fill_in "ユーザー名", with: "編集：テストユーザー"
         fill_in "メールアドレス", with: "edit@example.com"
-        fill_in "プロフィール", with: "プロフィール"
+        fill_in "プロフィール", with: "編集：プロフィール"
         attach_file "プロフィール画像", "spec/fixtures/sample.png"
         click_button "更新"
         expect(page).to have_content "ユーザー情報を更新しました"
+        expect(user.reload.name).to eq "編集：テストユーザー"
+        expect(user.reload.email).to eq "edit@example.com"
+        expect(user.reload.profile).to eq "編集：プロフィール"
       end
       
       it "ユーザー情報の編集に失敗する" do  
