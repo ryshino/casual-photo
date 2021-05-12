@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "トップページ", type: :system do
+RSpec.describe "Top_pages", type: :system do
   let(:user) { FactoryBot.create(:user) }
   before do
     visit root_path

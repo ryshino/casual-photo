@@ -3,4 +3,5 @@ class Favorite < ApplicationRecord
   belongs_to :photo
   
   validates_uniqueness_of :photo_id, scope: :user_id
+  validates :user_id, :photo_id, presence: true
 end

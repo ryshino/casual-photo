@@ -51,6 +51,7 @@ RSpec.describe User, type: :model do
     )
     user.valid?
     expect(user.errors[:email]).to include("はすでに存在します")
+    expect(user.valid?).to eq(false)
   end
 
   it "パスワードが６文字以下なら無効な状態であること" do
