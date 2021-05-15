@@ -12,7 +12,7 @@ RSpec.describe "Top_pages", type: :system do
         it "3つのサブタイトルが存在すること" do
           expect(page).to have_content "あなたが本当に 見せたかった１枚を"
           expect(page).to have_content "コメントをしてみよう！"
-          expect(page).to have_content "気軽に投稿してみよう！"
+          expect(page).to have_content "公開範囲を設定できます！"
         end
       end
     end
