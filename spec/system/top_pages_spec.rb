@@ -15,6 +15,12 @@ RSpec.describe "Top_pages", type: :system do
           expect(page).to have_content "公開範囲を設定できます！"
         end
       end
+
+      context "画像" do
+        it "画像が正しく表示されていること" do
+          expect(page).to have_selector("img[src$='']")
+        end
+      end 
     end
   end
 end
