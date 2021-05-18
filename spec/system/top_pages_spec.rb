@@ -16,9 +16,20 @@ RSpec.describe "Top_pages", type: :system do
         end
       end
 
-      context "画像" do
-        it "画像が正しく表示されていること" do
-          expect(page).to have_selector("img[src$='']")
+      context "ボタンの表示" do
+        it "ログインしている場合" do
+          visit login_path
+          fill_in "メールアドレス", with: user.email
+          fill_in "パスワード", with: user.password
+          click_button "専用ログイン"
+
+          visit root_path
+          expect(page).to have_button("さあはじめよう！")
+        end
+
+        it "ログインしていない場合" do
+          expect(page).to have_button("新規登録")
+          expect(page).to have_button("ログイン")
         end
       end 
     end
