@@ -3,9 +3,13 @@ class PhotosController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
-    @photos = Photo.includes(:user).open
-    @photos_login = Photo.includes(:user)
+    if logged_in?
+      @photos = Photo.includes(:user)
+    else
+      @photos = Photo.includes(:user).open
+    end
   end
+
 
   def show
     @photo = Photo.find(params[:id])
