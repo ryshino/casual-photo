@@ -14,42 +14,7 @@
       <div class="column is-6">
         <%= form_with(model: @photo, local: true) do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
-          <div class="field">
-            <%= f.label :title, class: "label" %>
-            <%= f.text_field :title, class: "input" %>
-          </div>
-          
-          <div class="fiel">
-            <%= f.label :body, class: "label" %>
-            <%= f.text_area :body, class:"textarea" %>
-          </div>
-          
-          <div class="field">
-            <%= f.label :image, class: "label" %>
-            <div class="file has-name is-fullwidth">
-              <label class="file-label">
-                <span class="file-cta">
-                  <span class="file-icon">
-                    <i class="fas fa-upload"></i>
-                  </span>
-                  <span class="file-label">
-                    <%= f.attachment_field :image, id: "file", style: "display:none;", onchange: "$('#fake_input_file').val($(this).val())" %>
-                    <input type="button" onClick="$('#file').click();" class="noborder">
-                    写真を選択
-                  </span>
-                </span>
-                <span class="file-name">
-                  <input id="fake_input_file" readonly type="text" value=""  onClick="$('#file').click();" class="noborder">
-                </span>
-              </label>
-            </div>
-          </div>
-
-           <div class="field">
-            <%= f.label :status, '公開範囲', class: "label" %>
-            <%= f.select :status, options_for_select(Photo.statuses.map { |k, _v| [t("activerecord.attributes.photo.statuses.#{k}"), k] }), {}, { class:'select is-fullwidth' } %>
-          </div>
-          
+          <%= render partial: 'form', locals: { f: f } %>
           <%= f.submit '更新', class: "button is-success is-fullwidth" %>
         <% end %>
       </div>
