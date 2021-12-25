@@ -4,9 +4,9 @@ class PhotosController < ApplicationController
   
   def index
     if logged_in?
-      @photos = Photo.includes(:user)
+      @photos = Photo.preload(:user, :favorites)
     else
-      @photos = Photo.includes(:user).open
+      @photos = Photo.preload(:user, :favorites).open
     end
   end
 

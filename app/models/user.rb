@@ -14,9 +14,8 @@ class User < ApplicationRecord
   attachment :profile_image
 
   has_secure_password
-  
-  def already_favorited?(photo)
-    self.favorites.exists?(photo_id: photo.id)
+      
+  def already_favorited?(favorite, current_user_id)
+    favorite.pluck(:user_id).include?(current_user_id)
   end
-    
 end
