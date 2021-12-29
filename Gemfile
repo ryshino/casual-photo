@@ -80,6 +80,8 @@ gem 'dotenv-rails'
 
 gem 'jquery-rails'
 
+gem 'rails_admin', '~> 2.0'
+
 group :production, :staging do
   gem 'unicorn'
 end
