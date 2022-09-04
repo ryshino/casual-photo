@@ -82,6 +82,6 @@ gem 'jquery-rails'
 
 gem 'rails_admin', '~> 2.0'
 
-group :production, :staging do
-  gem 'unicorn'
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
 end
