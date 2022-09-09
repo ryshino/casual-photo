@@ -41,7 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem "factory_bot_rails", "~> 4.10.0"
+  gem "factory_bot_rails"
   gem 'sqlite3'
 end
 
@@ -57,8 +57,8 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'launchy', '~> 2.4.3'
+  gem 'capybara'
+  gem 'launchy'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   # Easy installation and use of chromedriver to run system tests with Chrome
@@ -83,7 +83,7 @@ gem 'dotenv-rails'
 
 gem 'jquery-rails'
 
-gem 'rails_admin', '~> 2.0'
+gem 'rails_admin'
 
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
