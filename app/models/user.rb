@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 280 }
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   
-  attachment :profile_image
+  has_one_attached :image
 
   has_secure_password
       
