@@ -77,7 +77,6 @@ gem 'rails-i18n'
 
 gem 'jquery-rails'
 
-gem 'dotenv-rails'
 gem 'aws-sdk-s3'
 
 
