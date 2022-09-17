@@ -70,16 +70,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mini_racer'
 
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+
 
 gem "bulma-rails"
 gem 'rails-i18n'
 
-gem "refile-s3"
-gem 'dotenv-rails'
-
 gem 'jquery-rails'
+
+gem 'dotenv-rails'
+gem 'aws-sdk-s3'
 
 
 group :production do
