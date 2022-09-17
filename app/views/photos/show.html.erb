@@ -15,7 +15,11 @@
         <div class="card">
           <div class="card-image">
             <figure>
-              <%= attachment_image_tag @photo, :image, class: "show_image" %>
+              <% if @photo.image.attached? %>
+                <%= image_tag @photo.image, class: "show_image" %>
+              <% else %>
+                <%= image_tag 'no-image.png' %>
+              <% end %>
             </figure>
           </div>
           <div class="card-content">
