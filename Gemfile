@@ -82,5 +82,5 @@ gem 'aws-sdk-s3'
 
 
 group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
+  gem 'unicorn', '5.4.1'
 end
