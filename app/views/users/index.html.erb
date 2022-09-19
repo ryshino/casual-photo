@@ -19,9 +19,9 @@
                 <figure class="image is-4by3">
                   <%= link_to user_path(user) do %>
                     <% if user.image.attached? %>
-                      <%= image_tag user.image, size: '60x60' %>
+                      <%= image_tag user.image %>
                     <% else %>
-                      <%= image_tag 'no_image.png' %>
+                      <%= image_tag "no-image.png" %>
                     <% end %>
                   <% end %>
                 </figure>
